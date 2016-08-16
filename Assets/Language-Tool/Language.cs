@@ -6,6 +6,6 @@ using UnityEngine;
 public class Language : ScriptableObject
 {
 	public List<SystemLanguage> m_LanguageType;
-	public List<string> m_Values;
+	public List<LanguageValue> m_Values;
 	public List<string> m_Keys;
 }
