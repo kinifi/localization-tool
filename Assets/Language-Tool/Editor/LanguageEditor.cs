@@ -15,8 +15,8 @@ public class LanguageEditor : EditorWindow
 
   private SystemLanguage newSystemLanguage = SystemLanguage.English;
 
-  //temp values used when creating a new key
-  private string mNewKey, mNewValue;
+	//temp values used when creating a new key
+	private string mNewKey, mNewValue;
 
 	[MenuItem("Window/Language Editor %l")]
 	public static void ShowEditor()
@@ -45,6 +45,7 @@ public class LanguageEditor : EditorWindow
 		DetectSelectedFile();
 	}
 
+	//draws the UI
 	private void OnGUI()
 	{
 
@@ -55,62 +56,108 @@ public class LanguageEditor : EditorWindow
 			return;
 		}
 
-    //display an enum for the languages we have
-    AddLanguageUI();
 
-    //display everything we need if they have selected a language
-    GUILayout.BeginHorizontal();
-    DisplayKeys();
-    GUILayout.EndHorizontal();
-
-    //display the new key and value creation UI
-    GUILayout.BeginHorizontal("GroupBox");
-    NewKeyCreation();
-    GUILayout.EndHorizontal();
+		CreationPanel();
+		DisplayPanel();
 
 	}
 
-
-  private void AddLanguageUI()
-  {
-      GUILayout.BeginHorizontal("GroupBox");
-
-      newSystemLanguage = (SystemLanguage)EditorGUILayout.EnumPopup(
-          "Language: ",
-          newSystemLanguage, "DropDownButton");
-
-      GUILayout.EndHorizontal();
-  }
-
-	private void DisplayValues()
+	private void DisplayPanel()
 	{
-		GUILayout.BeginVertical("GroupBox");
 
-		GUILayout.Label("Values");
+		GUILayout.BeginArea(new Rect(position.width/4,0, position.width - position.width/4, position.height), EditorStyles.helpBox);
+		// GUILayout.Label("GroupBox");
 
-		//display all the keys
-		for (int i = 1; i <= mLevel.m_Values.Count; i++)
+		DisplayKeys();
+
+		GUILayout.EndArea();
+
+	}
+
+	private void CreationPanel()
+	{
+		GUILayout.BeginArea(new Rect(0,0, position.width/4, position.height), "GroupBox");
+
+		GUILayout.BeginVertical("GroupBox", GUILayout.Height(position.height));
+
+		//display an enum for the languages we have
+		LanguageSelectionDropdown();
+
+		//new key creation
+		NewKeyCreation();
+
+		//new value creation
+		NewValueCreation();
+
+	  	GUILayout.EndVertical();
+		GUILayout.EndArea();
+	}
+
+	private void NewValueCreation()
+	{
+
+		EditorGUILayout.Space();
+
+		GUILayout.Label("Add the text desired to localize.", "HelpBox");
+
+		GUILayout.Label("Localization Text: ");
+		
+		//display the text area 
+		mNewValue = GUILayout.TextArea(mNewValue, "AS TextArea", GUILayout.Height(100));
+
+		//add the value to the mLevel Object
+		if(GUILayout.Button("Submit", "LargeButton"))
 		{
-			GUILayout.BeginHorizontal("HelpBox", GUILayout.Width(position.width / 2));
-
-			GUILayout.Label(mLevel.m_Values[i - 1].m_Values[i -1]);
-			GUILayout.EndHorizontal();
+			Debug.Log("Entering new Value");
+			Debug.Log(mLevel.m_Values.Count);
 		}
 
-		GUILayout.EndVertical();
 
 	}
+
+	//draws the dropdown menu for the language you are writing in
+	private void LanguageSelectionDropdown()
+	{
+	  
+		GUILayout.Label("Select A Language To Modify", "HelpBox");
+		newSystemLanguage = (SystemLanguage)EditorGUILayout.EnumPopup(
+		  "Language: ",
+		  newSystemLanguage, "DropDownButton");
+
+	  //TODO: check if this value changes so we can update values in the table
+
+	}
+
+
+	// private void DisplayValues()
+	// {
+	// 	GUILayout.BeginVertical("GroupBox");
+
+	// 	GUILayout.Label("Values");
+
+	// 	//display all the keys
+	// 	for (int i = 1; i <= mLevel.m_Values.Count; i++)
+	// 	{
+	// 		GUILayout.BeginHorizontal("HelpBox", GUILayout.Width(position.width / 2));
+
+	// 		GUILayout.Label(mLevel.m_Values[i - 1].m_Values[i -1]);
+	// 		GUILayout.EndHorizontal();
+	// 	}
+
+	// 	GUILayout.EndVertical();
+
+	// }
 
 	//display all the keys in a vertical list
 	private void DisplayKeys()
 	{
 
 		//check if we have any keys at all
-    if (mLevel.m_Keys.Count == 0)
-        return;
+		if (mLevel.m_Keys.Count == 0)
+		    return;
 
-		//start the key group box
-    GUILayout.BeginVertical("GroupBox");
+			//start the key group box
+		GUILayout.BeginVertical("GroupBox");
 
 		//GUILayout.Label("Key & Value's");
 
@@ -118,19 +165,17 @@ public class LanguageEditor : EditorWindow
 		for (int i = 1; i <= mLevel.m_Keys.Count; i++)
 		{
 			GUILayout.BeginHorizontal("HelpBox");
+			//display the keys
 			GUILayout.Label("Key: " + mLevel.m_Keys[i - 1]);
-			GUILayout.Label("Value: " + mLevel.m_Keys[i - 1]);
 			//delete button
 			if(GUILayout.Button("Delete", GUILayout.Width(50)))
 			{
 				mLevel.m_Keys.RemoveAt(i - 1);
-				mLevel.m_Values.RemoveAt(i - 1);
 			}
 
 			//edit Button
 			if(GUILayout.Button("Edit", GUILayout.Width(50)))
 			{
-				mNewValue = mLevel.m_Values[i - 1].m_Values[i - 1];
 				mNewKey = mLevel.m_Keys[i - 1];
 			}
 
@@ -144,41 +189,58 @@ public class LanguageEditor : EditorWindow
 	private void NewKeyCreation()
 	{
 
+		GUILayout.Space(5);
+
+		GUILayout.Label("Create a new Key for Text to watch", "HelpBox");
+
+		GUILayout.BeginHorizontal();		
+
+		//display the text field for creating a new key
 		GUILayout.BeginHorizontal();
-		mNewKey = EditorGUILayout.TextField("New Key: ", mNewKey);
-		GUILayout.Space(10);
-		mNewValue = EditorGUILayout.TextField("Translated Text: ", mNewValue);
-		//submit button to add the translated text to a key
-		if(GUILayout.Button("Submit", GUILayout.Width(50)))
+		GUILayout.Label("Key: ");
+		mNewKey = GUILayout.TextField(mNewKey);
+		GUILayout.EndHorizontal();
+
+
+		//when clicked creates a key value
+		if(GUILayout.Button("+", "minibutton", GUILayout.Width(30)))
 		{
 
 			//validate the data
-			if(mNewKey != "" && mNewValue != "")
+			if(mNewKey != " " && mNewKey != "")
 			{
 				//add the values
 				mLevel.m_Keys.Add(mNewKey);
 
-				LanguageValue _newValue = new LanguageValue();
-				//add the current language being edited
-				_newValue.m_LanguageType = newSystemLanguage;
-				//add the current value to a new Value
-				_newValue.m_Values.Add(mNewValue);
-				
-				//mLevel.m_Values.Add(_newValue);
+				// Debug.Log("<color=green>New Key Created:" + mNewKey + "</color>");
+
+				//clear the value now that we have added it to the Asset
+				ClearCreationFields();
+
 			}
 			else
 			{
 				Debug.LogError("New Value or Key is Empty or Invalid");
 			}
 
-			//clear the value now that we have added it to the Asset
-			mNewValue = "";
-			mNewKey = "";
 			// Debug.Log("Created New Value: " + mNewValue);
 		}
+
 		GUILayout.EndHorizontal();
 
 	}
+
+	//helper methods
+
+	//clears the creation fields to blank strings
+	private void ClearCreationFields()
+	{
+		mNewValue = "";
+		mNewKey = "";
+		Repaint();
+	}
+
+
 
 	//UNITY EVENTS START
 	//All will reset the editor window
@@ -236,7 +298,7 @@ public class LanguageEditor : EditorWindow
 			selectedAsset = Selection.activeObject as Language;
 			mLevel = selectedAsset;
 			mIsInitalized = true;
-            this.RemoveNotification();
+	        this.RemoveNotification();
 		}
 		else
 		{

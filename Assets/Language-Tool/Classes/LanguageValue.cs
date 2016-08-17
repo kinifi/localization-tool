@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LanguageValue
+public class LanguageValue : ScriptableObject
 {
     public SystemLanguage m_LanguageType;
-    public List<string> m_Values;
+    public List<string> m_Text;
 }
