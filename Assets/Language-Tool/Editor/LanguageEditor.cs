@@ -13,13 +13,14 @@ public class LanguageEditor : EditorWindow
 	private bool mIsInitalized = false;
 	private string m_NotificationText = "Select A Language Asset";
 
-    private SystemLanguage newSystemLanguage = SystemLanguage.English;
+  private SystemLanguage newSystemLanguage = SystemLanguage.English;
 
-    //temp values used when creating a new key
-    private string mNewKey, mNewValue;
+  //temp values used when creating a new key
+  private string mNewKey, mNewValue;
 
 	[MenuItem("Window/Language Editor %l")]
-	public static void ShowEditor() {
+	public static void ShowEditor()
+	{
 
 		//create the editor window
 		LanguageEditor editor = EditorWindow.GetWindow<LanguageEditor>();
@@ -54,43 +55,32 @@ public class LanguageEditor : EditorWindow
 			return;
 		}
 
+    //display an enum for the languages we have
+    AddLanguageUI();
 
-        //check if there is a language in mLevel
-        if (mLevel.m_LanguageType.Count == 0)
-        {
-            //display the language selection
-            AddLanguageUI();
-        }
-        else
-        {
-            //display an enum for the languages we have
-            AddLanguageUI();
+    //display everything we need if they have selected a language
+    GUILayout.BeginHorizontal();
+    DisplayKeys();
+    GUILayout.EndHorizontal();
 
-            //display everything we need if they have selected a language
-            GUILayout.BeginHorizontal();
-            DisplayKeys();
-            GUILayout.EndHorizontal();
-
-            //display the new key and value creation UI
-            GUILayout.BeginHorizontal("GroupBox");
-            NewKeyCreation();
-            GUILayout.EndHorizontal();
-        }
+    //display the new key and value creation UI
+    GUILayout.BeginHorizontal("GroupBox");
+    NewKeyCreation();
+    GUILayout.EndHorizontal();
 
 	}
 
 
-    private void AddLanguageUI()
-    {
-        GUILayout.BeginHorizontal("GroupBox");
+  private void AddLanguageUI()
+  {
+      GUILayout.BeginHorizontal("GroupBox");
 
-        newSystemLanguage = (SystemLanguage)EditorGUILayout.EnumPopup(
-            "Language: ",
-            newSystemLanguage, "DropDownButton");
+      newSystemLanguage = (SystemLanguage)EditorGUILayout.EnumPopup(
+          "Language: ",
+          newSystemLanguage, "DropDownButton");
 
-        GUILayout.EndHorizontal();
-    }
-
+      GUILayout.EndHorizontal();
+  }
 
 	private void DisplayValues()
 	{
@@ -115,14 +105,14 @@ public class LanguageEditor : EditorWindow
 	private void DisplayKeys()
 	{
 
+		//check if we have any keys at all
+    if (mLevel.m_Keys.Count == 0)
+        return;
 
-        if (mLevel.m_Keys.Count == 0)
-            return;
+		//start the key group box
+    GUILayout.BeginVertical("GroupBox");
 
-        GUILayout.BeginVertical("GroupBox");
-
-		GUILayout.Label("Key & Value's");
-
+		//GUILayout.Label("Key & Value's");
 
 		//display all the keys
 		for (int i = 1; i <= mLevel.m_Keys.Count; i++)
@@ -167,8 +157,14 @@ public class LanguageEditor : EditorWindow
 			{
 				//add the values
 				mLevel.m_Keys.Add(mNewKey);
-                //TODO: Add values to the correct language
-				//mLevel.m_Values.Add(new LanguageValue(newSystemLanguage, mNewValue));
+
+				LanguageValue _newValue = new LanguageValue();
+				//add the current language being edited
+				_newValue.m_LanguageType = newSystemLanguage;
+				//add the current value to a new Value
+				_newValue.m_Values.Add(mNewValue);
+				
+				//mLevel.m_Values.Add(_newValue);
 			}
 			else
 			{

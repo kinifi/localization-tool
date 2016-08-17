@@ -11,11 +11,6 @@ public class LanguageInspector : Editor
     private Language m_Language;
     private bool mIsInitalized = false;
 
-    void OnEnable()
-    {
-
-    }
-
     public override void OnInspectorGUI()
     {
 
