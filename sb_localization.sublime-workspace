@@ -3,10 +3,168 @@
 	{
 		"selected_items":
 		[
+			[
+				"chin",
+				"m_Chinese\tList<string>"
+			],
+			[
+				"slo",
+				"m_Slovak\tList<string>"
+			],
+			[
+				"th",
+				"m_Thai\tList<string>"
+			],
+			[
+				"chine",
+				"m_ChineseTraditional\tList<string>"
+			],
+			[
+				"new",
+				"newLanguageValue\tstring"
+			],
+			[
+				"slov",
+				"Slovenian\tSystemLanguage"
+			],
+			[
+				"mNew",
+				"mNewKey\tstring"
+			],
+			[
+				"labe",
+				"miniLabel\tGUIStyle { get; }"
+			],
+			[
+				"m",
+				"mNewKey\tstring"
+			],
+			[
+				"Begin",
+				"BeginHorizontal(params GUILayoutOption[] options)\tvoid"
+			],
+			[
+				"end",
+				"EndVertical()\tvoid"
+			],
+			[
+				"be",
+				"BeginHorizontal(params GUILayoutOption[] options)\tvoid"
+			],
+			[
+				"mnew",
+				"mNewValue\tstring"
+			],
+			[
+				"Guila",
+				"GUILayout\tGUILayout"
+			],
+			[
+				"editorgui",
+				"EditorGUILayout\tEditorGUILayout"
+			],
+			[
+				"End",
+				"EndHorizontal()\tvoid"
+			],
+			[
+				"Be",
+				"BeginHorizontal(params GUILayoutOption[] options)\tvoid"
+			],
+			[
+				"En",
+				"EndVertical()\tvoid"
+			],
+			[
+				"Edit",
+				"EditingUI()\tvoid"
+			],
+			[
+				"newky",
+				"mNewKey\tstring"
+			],
+			[
+				"tool",
+				"toolbarButton\tGUIStyle { get; }"
+			],
+			[
+				"toolb",
+				"toolbarTextField\tGUIStyle { get; }"
+			],
+			[
+				"text",
+				"TextField(string text, params GUILayoutOption[] options)\tstring"
+			],
+			[
+				"editorGUi",
+				"EditorGUILayout\tEditorGUILayout"
+			],
+			[
+				"GUL",
+				"GUILayout\tGUILayout"
+			],
+			[
+				"toolbar",
+				"toolbarPopup\tGUIStyle { get; }"
+			],
+			[
+				"GUiLa",
+				"GUILayout\tGUILayout"
+			],
+			[
+				"systemlan",
+				"SystemLanguage\tSystemLanguage"
+			],
+			[
+				"Remov",
+				"RemoveAt(int index)\tvoid"
+			],
+			[
+				"Lagn",
+				"LanguageValue\tLanguageValue"
+			],
+			[
+				"Language",
+				"LanguageValue()\tLanguageValue()"
+			],
+			[
+				"GUIla",
+				"GUILayout\tGUILayout"
+			],
+			[
+				"GUILa",
+				"GUILayout\tGUILayout"
+			],
+			[
+				"GUila",
+				"GUILayout\tGUILayout"
+			],
+			[
+				"GUILay",
+				"GUILayout\tGUILayout"
+			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "Assets/Language-Tool/Classes/Language.cs",
+			"settings":
+			{
+				"buffer_size": 1719,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/Language-Tool/Editor/LanguageEditor.cs",
+			"settings":
+			{
+				"buffer_size": 12547,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -15,10 +173,22 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 191.0,
-		"last_filter": "install",
+		"height": 210.0,
+		"last_filter": "boxy",
 		"selected_items":
 		[
+			[
+				"boxy",
+				"Boxy Theme: Extras"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"toggle open",
+				"View: Toggle Open Files in Side Bar"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
@@ -28,7 +198,7 @@
 				"Package Control: Remove Package"
 			]
 		],
-		"width": 408.0
+		"width": 414.0
 	},
 	"console":
 	{
@@ -52,17 +222,31 @@
 		"/C/Users/chrisf/Documents/GitHub/localization-tool",
 		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets",
 		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool",
-		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool/Classes"
+		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool/Editor"
 	],
 	"file_history":
 	[
+		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool/Classes/LanguageValue.cs",
+		"/D/Unity Projects/animationclipadd/Assets/animtest.cs",
+		"/D/Xbox One Resources/XBONE Help Docs/Angry Bots Application Info.txt",
+		"/D/Xbox One Resources/XBONE Help Docs/Xbox_Accounts.txt",
+		"/D/Unity Projects/xboxdennistest/Assets/GameDVR/GameDVRMainMenu.cs",
+		"/C/Users/chrisf/.hgrc",
+		"/C/Users/Unity",
+		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool/Editor/LanguageEditor.cs",
+		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool/Classes/Language.cs",
+		"/D/Unity Projects/XboxOne-Addon/Assets/Editor/XboxOneDocs.cs",
+		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool/UI-Helpers/LocalizeText.cs",
+		"/D/Unity Projects/portnumberneeded/New Unity Project/Assets/Multiplayer/Common/Game/JoinFriendGameSession.cs",
+		"/D/Unity Projects/portnumberneeded/New Unity Project/Assets/Multiplayer/MP2015/MP2015.cs",
+		"/C/Users/chrisf/AppData/Roaming/Sublime Text 3/Packages/User/C#.sublime-settings",
 		"/C/Users/chrisf/Documents/GitHub/localization-tool/sb_localization.sublime-project",
 		"/C/Users/chrisf/AppData/Roaming/Sublime Text 3/Packages/User/Plain text.sublime-settings",
 		"/C/Users/chrisf/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings"
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
@@ -76,6 +260,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"DetectSelectedFile",
+			"mLevel.m_Keys",
+			"DisplayKeys",
+			"DisplayKeys()",
+			"port",
+			"m_NewValue",
+			"m_newvalue"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -93,14 +284,144 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "Assets/Language-Tool/Classes/Language.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1719,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								297,
+								297
+							]
+						],
+						"settings":
+						{
+							"oops":
+							{
+								"0,5": "Using directive is not used by code and can be removed safely.",
+								"1026,1034": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"1057,1066": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"1089,1101": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"1124,1135": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"1158,1166": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"1189,1201": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"1224,1234": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"1257,1266": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"1289,1304": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"1327,1335": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"1358,1369": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"1392,1401": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"1424,1433": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"1456,1462": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"1485,1494": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"1517,1528": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"1551,1563": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"1586,1605": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"1628,1648": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"1671,1680": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"1703,1714": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"232,246": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"269,275": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"320,331": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"354,362": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"385,393": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"416,428": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"451,462": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"485,494": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"517,526": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"549,556": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"579,587": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"610,617": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"640,649": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"672,682": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"705,714": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"737,746": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"769,777": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"800,808": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"831,838": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"861,869": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"892,903": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"926,938": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"961,970": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"993,1003": "after '_' a lower letter should follow. (Rule 'Fields')"
+							},
+							"syntax": "Packages/C#/C#.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Assets/Language-Tool/Editor/LanguageEditor.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12547,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1713,
+								1713
+							]
+						],
+						"settings":
+						{
+							"oops":
+							{
+								"1102,1103": "Comparison with 'true' is redundant",
+								"11393,11404": "Method 'OnLostFocus' has the same with 'PlaymodeChanged'",
+								"11465,11472": "Method 'OnFocus' has the same with 'OnLostFocus'",
+								"11532,11547": "Method 'OnProjectChange' has the same with 'OnFocus'",
+								"11608,11625": "Method 'OnSelectionChange' has the same with 'OnProjectChange'",
+								"11840,11844": "Assignment is redundant",
+								"12016,12029": "Assignment is redundant",
+								"12381,12385": "'this.' is redundant and can be removed safely.",
+								"12495,12508": "Assignment is redundant",
+								"129,134": "Using directive is not used by code and can be removed safely.",
+								"1351,1352": "Comparison with 'false' is redundant",
+								"1410,1414": "'this.' is redundant and can be removed safely.",
+								"233,237": "Initializing field by default value is redundant",
+								"269,274": "Initializing field by default value is redundant",
+								"292,310": "Convert to constant",
+								"38,43": "Using directive is not used by code and can be removed safely.",
+								"52,57": "Using directive is not used by code and can be removed safely.",
+								"606,622": "Name should have prefix '_'. (Rule 'Fields').",
+								"69,74": "Using directive is not used by code and can be removed safely.",
+								"95,100": "Using directive is not used by code and can be removed safely."
+							},
+							"syntax": "Packages/C#/C#.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 779.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 0.0
+		"height": 23.0
 	},
 	"input":
 	{
@@ -137,11 +458,15 @@
 	{
 		"height": 0.0
 	},
+	"output.variable_get":
+	{
+		"height": 86.0
+	},
 	"pinned_build_system": "",
 	"project": "sb_localization.sublime-project",
 	"replace":
 	{
-		"height": 0.0
+		"height": 42.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -150,6 +475,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"language",
+				"Assets\\Language-Tool\\Classes\\Language.cs"
+			]
 		],
 		"width": 0.0
 	},
@@ -176,7 +505,7 @@
 	{
 	},
 	"show_minimap": true,
-	"show_open_files": true,
+	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 276.0,
