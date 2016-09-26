@@ -21,6 +21,9 @@ public class LanguageEditor : EditorWindow
 	private string mNewKey, mNewValue, mOriginText;
     //the value of the text in the current language
     public string newLanguageValue;
+    //currently editing key and value
+    private int m_editingKey, m_editingValue;
+    private SystemLanguage m_currentEditedLanguage;
 
 	[MenuItem("Window/Language Editor %l")]
 	public static void ShowEditor()
@@ -44,9 +47,6 @@ public class LanguageEditor : EditorWindow
 		{
 			return;
 		}
-
-		//Set the default language
-		// mLevel.m_LanguageType = SystemLanguage.English;
 
 		//detect what type of object we have selected
 		DetectSelectedFile();
@@ -88,6 +88,8 @@ public class LanguageEditor : EditorWindow
 		//make a container of these blocks of data
 		GUILayout.BeginVertical();
 
+		GUILayout.Label("Localization Table View", EditorStyles.miniLabel);
+
 		//start the scroll view
 		scrollPos = EditorGUILayout.BeginScrollView(scrollPos);
 
@@ -103,6 +105,7 @@ public class LanguageEditor : EditorWindow
 			{
 			    case SystemLanguage.Afrikaans:
 			        newLanguageValue = mLevel.m_Afrikaans[i-1];
+			        m_currentEditedLanguage = SystemLanguage.Afrikaans;
 			        break;
 			    case SystemLanguage.Arabic:
 			        newLanguageValue = mLevel.m_Arabic[i-1];
@@ -229,17 +232,19 @@ public class LanguageEditor : EditorWindow
 			        break;
 		    }
 
-            GUILayout.Label("Key: " + mLevel.m_Keys[i-1] + " | Value: " + newLanguageValue);
+		    GUILayout.Label("Key: " + mLevel.m_Keys[i-1] + " | Value: " + newLanguageValue);
 
             if(GUILayout.Button("Edit", GUILayout.Width(50)))
             {
             	mNewKey = mLevel.m_Keys[i-1];
+            	m_editingKey = i-1;
+            	mNewValue = newLanguageValue;
+
             }
 
 			if(GUILayout.Button("Delete", GUILayout.Width(50)))
             {
             	mLevel.m_Keys.RemoveAt(i-1);
-            	//TODO: Make a popup that asks them if they are sure they want to delete this
             }            
 
             GUILayout.EndHorizontal();
@@ -256,30 +261,172 @@ public class LanguageEditor : EditorWindow
 		GUILayout.Space(50);
 		GUILayout.BeginHorizontal();
 
-		//display the text box that shows the games native language and its original value
-		GUILayout.BeginVertical();
-		GUILayout.Label("Origin Text");
-		mOriginText = EditorGUILayout.TextArea(mOriginText, GUILayout.Height(150), GUILayout.Width(position.width/2));
-		GUILayout.EndVertical();
+		// //display the text box that shows the games native language and its original value
+		// GUILayout.BeginVertical();
+		// GUILayout.Label("Origin Text");
+		// mOriginText = EditorGUILayout.TextArea(mOriginText, GUILayout.Height(100), GUILayout.Width(position.width/2));
+		// GUILayout.EndVertical();
 
 		//display the text box for someone to translate the text
 		GUILayout.BeginVertical();
 		GUILayout.Label("Translated Text");
-		mNewValue = EditorGUILayout.TextArea(mNewValue, GUILayout.Height(150), GUILayout.Width(position.width/2-10));
+		mNewValue = EditorGUILayout.TextArea(mNewValue, GUILayout.Height(100), GUILayout.Width(position.width-10));
 		
 		GUILayout.BeginHorizontal();
 		//clear the translated text box
 		if(GUILayout.Button("Clear Translated Text"))
 		{
+			//clear the text
 			mNewValue = "";
 		}
 
 		//submit button for the translated text
 		if(GUILayout.Button("Submit Translated Text"))
 		{
-			Debug.Log("Translated Text: " + mNewValue);
+
+			//set the key to the correct language you are editing
+			mLevel.m_Keys[m_editingKey] = mNewKey;
+
+
+            //set the value to the correct language you are editing
+            switch (newSystemLanguage)
+			{
+			    case SystemLanguage.Afrikaans:
+			        mLevel.m_Afrikaans[m_editingKey] = mNewValue;
+			        break;
+			    case SystemLanguage.Arabic:
+			        mLevel.m_Arabic[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Basque:
+			        mLevel.m_Basque[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Belarusian:
+			        mLevel.m_Belarusian[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Catalan:
+			        mLevel.m_Catalan[m_editingKey] = mNewValue;
+			        break;
+			    case SystemLanguage.Chinese:
+			        mLevel.m_Chinese[m_editingKey] = mNewValue;
+			        break;
+			    case SystemLanguage.Czech:
+			        mLevel.m_Czech[m_editingKey] = mNewValue;
+			        break;
+			    case SystemLanguage.Danish:
+			        mLevel.m_Danish[m_editingKey] = mNewValue;
+			        break;
+			    case SystemLanguage.Dutch:
+			        mLevel.m_Dutch[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.English:
+			        mLevel.m_English[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Estonian:
+			        mLevel.m_Estonian[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Faroese:
+			        mLevel.m_Faroese[m_editingKey] = mNewValue;
+			        break;
+			    case SystemLanguage.Finnish:
+			        mLevel.m_Finnish[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.French:
+			        mLevel.m_French[m_editingKey] = mNewValue;
+			        break;
+			    case SystemLanguage.German:
+			        mLevel.m_German[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Greek:
+			        mLevel.m_Greek[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Hebrew:
+			        mLevel.m_Hebrew[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Icelandic:
+			        mLevel.m_Icelandic[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Indonesian:
+			        mLevel.m_Indonesian[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Italian:
+			        mLevel.m_Italian[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Japanese:
+			        mLevel.m_Japanese[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Korean:
+			        mLevel.m_Korean[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Latvian:
+			        mLevel.m_Latvian[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Lithuanian:
+			        mLevel.m_Lithuanian[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Norwegian:
+			        mLevel.m_Norwegian[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Polish:
+			        mLevel.m_Polish[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Portuguese:
+			        mLevel.m_Portuguese[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Romanian:
+			        mLevel.m_Romanian[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Russian:
+			        mLevel.m_Russian[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.SerboCroatian:
+			        mLevel.m_SerboCroatian[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Slovak:
+			        mLevel.m_Slovak[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Slovenian:
+			        mLevel.m_Slovenian[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Spanish:
+			        mLevel.m_Spanish[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Swedish:
+			        mLevel.m_Swedish[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Thai:
+			        mLevel.m_Thai[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Turkish:
+			        mLevel.m_Turkish[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Ukrainian:
+			        mLevel.m_Ukrainian[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.Vietnamese:
+			        mLevel.m_Vietnamese[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.ChineseSimplified:
+			        mLevel.m_ChineseSimplified[m_editingKey] = mNewValue;
+			        break;
+		        case SystemLanguage.ChineseTraditional:
+			        mLevel.m_ChineseTraditional[m_editingKey] = mNewValue;
+			        break;
+			    case SystemLanguage.Hungarian:
+			        mLevel.m_Hungarian[m_editingKey] = mNewValue;
+			        break;    
+		        case SystemLanguage.Unknown:
+			        mLevel.m_Unknown[m_editingKey] = mNewValue;
+			        break;
+		    }
+
+		    //clear the text box
+		    mNewValue = "";
+
+			// Debug.Log("Translated Text: " + mNewValue);
 		}
 		GUILayout.EndHorizontal();
+
+		GUILayout.Space(20);
 
 		GUILayout.EndVertical();
 
@@ -288,6 +435,7 @@ public class LanguageEditor : EditorWindow
 
 
 	}
+
 
 	private void toolbarUI()
 	{
@@ -355,7 +503,7 @@ public class LanguageEditor : EditorWindow
 			mLevel.m_Unknown.Add("");
 
 
-			Debug.Log("Add Key:" + mNewKey);
+			// Debug.Log("Add Key:" + mNewKey);
 
 			//clear the new key
 			mNewKey = "";
