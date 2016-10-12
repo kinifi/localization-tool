@@ -422,6 +422,9 @@ public class LanguageEditor : EditorWindow
 		    //clear the text box
 		    mNewValue = "";
 
+			//save the asset
+			AssetDatabase.SaveAssets();
+
 			// Debug.Log("Translated Text: " + mNewValue);
 		}
 		GUILayout.EndHorizontal();
