@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenuAttribute(fileName = "Language", menuName = "Localization/Language")]
 public class Language : ScriptableObject
 {
-	public SystemLanguage m_LanguageType;
+	// public SystemLanguage m_LanguageType;
 	public List<string> m_Keys = new List<string>();
 
 	public List<string> m_Afrikaans;
