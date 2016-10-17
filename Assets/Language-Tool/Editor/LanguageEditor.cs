@@ -122,6 +122,7 @@ public class LanguageEditor : EditorWindow
 			if(GUILayout.Button("Delete", GUILayout.Width(50)))
             {
             	mLevel.m_Keys.RemoveAt(i-1);
+            	mLevel.m_Translations.RemoveAt(i-1);
             }            
 
             GUILayout.EndHorizontal();
