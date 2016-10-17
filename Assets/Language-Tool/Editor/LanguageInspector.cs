@@ -16,7 +16,7 @@ public class LanguageInspector : Editor
 
       GUILayout.Label("Edit The Language File", EditorStyles.helpBox);
        //Open the Editor
-      if(GUILayout.Button("Edit Language File"))
+      if(GUILayout.Button("Edit Language File", EditorStyles.miniButton))
       {
         LanguageEditor.ShowEditor();
       }
