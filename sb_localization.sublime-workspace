@@ -5,7 +5,55 @@
 		[
 			[
 				"m",
+				"m_DefaultLanguage\tSystemLanguage"
+			],
+			[
+				"toolb",
+				"toolbarPopup\tGUIStyle { get; }"
+			],
+			[
+				"m_lan",
 				"m_Language\tLanguage"
+			],
+			[
+				"dir",
+				"SetVerticesDirty()\tvoid"
+			],
+			[
+				"update",
+				"Rebuild(CanvasUpdate update)\tvoid"
+			],
+			[
+				"set",
+				"SetVerticesDirty()\tvoid"
+			],
+			[
+				"Locali",
+				"LocalizeText\tLocalizeText"
+			],
+			[
+				"keyva",
+				"m_KeyValue\tint"
+			],
+			[
+				"m_l",
+				"m_Language\tLanguage"
+			],
+			[
+				"Getco",
+				"GetComponent<T>()\tT"
+			],
+			[
+				"Unite",
+				"UnityEngine\tUnityEngine"
+			],
+			[
+				"b",
+				"boldFont\tFont { get; }"
+			],
+			[
+				"key",
+				"Keys\tstring[]"
 			],
 			[
 				"m_",
@@ -124,10 +172,6 @@
 				"toolbarButton\tGUIStyle { get; }"
 			],
 			[
-				"toolb",
-				"toolbarTextField\tGUIStyle { get; }"
-			],
-			[
 				"text",
 				"TextField(string text, params GUILayoutOption[] options)\tstring"
 			],
@@ -183,15 +227,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "Assets/Language-Tool/Editor/LocalizeTextInspector.cs",
-			"settings":
-			{
-				"buffer_size": 1699,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -248,17 +283,17 @@
 	[
 		"/C/Users/chrisf/Documents/GitHub/localization-tool",
 		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets",
-		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool",
-		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool/Editor"
+		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool"
 	],
 	"file_history":
 	[
-		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool/Editor/LanguageEditor.cs",
-		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool/Editor/LanguageInspector.cs",
-		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool/Classes/Language.cs",
-		"/C/Users/chrisf/unity/.hg/hgrc",
-		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool/Editor/LocalizeTextInspector.cs",
 		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool/UI-Helpers/LocalizeText.cs",
+		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool/Classes/Language.cs",
+		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool/Editor/LocalizeTextInspector.cs",
+		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool/Editor/LanguageEditor.cs",
+		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool/UI-Helpers/LocalizeUIText.cs",
+		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool/Editor/LanguageInspector.cs",
+		"/C/Users/chrisf/unity/.hg/hgrc",
 		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/testScript.cs",
 		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool/Classes/LanguageValue.cs",
 		"/D/Unity Projects/animationclipadd/Assets/animtest.cs",
@@ -291,6 +326,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"op",
+			"toolbarUI",
+			"index",
 			"LanguageSelectionDropdown",
 			"newSystemLanguage",
 			"DetectSelectedFile",
@@ -317,51 +355,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "Assets/Language-Tool/Editor/LocalizeTextInspector.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1699,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1689,
-								1689
-							]
-						],
-						"settings":
-						{
-							"oops":
-							{
-								"0,5": "Using directive is not used by code and can be removed safely.",
-								"255,265": "The private field 'm_Language' is never assigned",
-								"26,31": "Using directive is not used by code and can be removed safely.",
-								"285,291": "Name should have prefix '_'. (Rule 'Fields').",
-								"311,322": "Name should have prefix '_'. (Rule 'Fields').",
-								"340,348": "Name should have prefix '_'. (Rule 'Fields').",
-								"351,356": "Initializing field by default value is redundant",
-								"469,481": "Use 'var' keyword",
-								"482,492": "Local variable 'm_Language' hides field 'LocalizeTextInspector.m_Language'"
-							},
-							"syntax": "Packages/C#/C#.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 336.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -422,6 +417,18 @@
 		"selected_items":
 		[
 			[
+				"language",
+				"Assets\\Language-Tool\\Classes\\Language.cs"
+			],
+			[
+				"localizetex",
+				"Assets\\Language-Tool\\UI-Helpers\\LocalizeText.cs"
+			],
+			[
+				"uiloca",
+				"Assets\\Language-Tool\\UI-Helpers\\LocalizeUIText.cs"
+			],
+			[
 				"lan",
 				"Assets\\Language-Tool\\Classes\\Language.cs"
 			],
@@ -432,10 +439,6 @@
 			[
 				"testsc",
 				"Assets\\testScript.cs"
-			],
-			[
-				"language",
-				"Assets\\Language-Tool\\Classes\\Language.cs"
 			]
 		],
 		"width": 0.0

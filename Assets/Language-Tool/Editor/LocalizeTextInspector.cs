@@ -22,7 +22,7 @@ public class LocalizeTextInspector : Editor
 
       m_Language = (LocalizeText)target;
 
-      GUILayout.Space(10);
+      GUILayout.Space(2);
 
       //load values 
       selectedKey = m_Language.m_LanguageKey;
@@ -42,7 +42,7 @@ public class LocalizeTextInspector : Editor
       source = (Language)EditorGUILayout.ObjectField(source, typeof(Language), false);
       GUILayout.EndHorizontal(); 
 
-      GUILayout.Space(5);
+      GUILayout.Space(2);
 
       m_Language.m_Language = (Language)source;
 
@@ -55,7 +55,7 @@ public class LocalizeTextInspector : Editor
       //tell what type of language this asset is set to
       languageType = m_Language.m_Language.m_DefaultLanguage;
       GUILayout.Label("Language Type: " + languageType.ToString());
-      GUILayout.Space(5);
+      GUILayout.Space(2);
 
       //convert the list of keys to an array so we can display them in the EditorGUILayout.Popup
       string[] Keys = m_Language.m_Language.m_Keys.ToArray();
@@ -79,7 +79,7 @@ public class LocalizeTextInspector : Editor
         GUILayout.Label("No Keys in the Language Asset", EditorStyles.helpBox);
       }
 
-      GUILayout.Space(5);
+      GUILayout.Space(2);
 
       DetectUITextObject();
     }
