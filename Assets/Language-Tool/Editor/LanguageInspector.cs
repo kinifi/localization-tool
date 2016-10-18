@@ -9,8 +9,8 @@ public class LanguageInspector : Editor
 {
 
     private Language m_Language;
-    private bool m_ShowKeys = false;
-    private bool m_ShowTranslations = false;
+    private bool m_ShowKeys = true;
+    private bool m_ShowTranslations = true;
 
     public override void OnInspectorGUI()
     {
