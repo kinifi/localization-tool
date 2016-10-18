@@ -227,6 +227,15 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "Assets/Language-Tool/Editor/LanguageInspector.cs",
+			"settings":
+			{
+				"buffer_size": 1680,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -283,7 +292,8 @@
 	[
 		"/C/Users/chrisf/Documents/GitHub/localization-tool",
 		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets",
-		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool"
+		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool",
+		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool/Editor"
 	],
 	"file_history":
 	[
@@ -355,8 +365,44 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "Assets/Language-Tool/Editor/LanguageInspector.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1680,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								362,
+								362
+							]
+						],
+						"settings":
+						{
+							"oops":
+							{
+								"0,5": "Using directive is not used by code and can be removed safely.",
+								"26,31": "Using directive is not used by code and can be removed safely."
+							},
+							"syntax": "Packages/C#/C#.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
