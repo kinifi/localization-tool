@@ -10,7 +10,7 @@ using UnityEditor;
 public class LocalizeText : MonoBehaviour {
 
 	public Language m_Language;
-
+	public SystemLanguage m_LanguageType;
 	public string m_LanguageKey = "";
 	public int m_KeyValue;
 	public Text UIText;

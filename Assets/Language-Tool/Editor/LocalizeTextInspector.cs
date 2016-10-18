@@ -14,6 +14,7 @@ public class LocalizeTextInspector : Editor
     public string selectedKey;
     public bool showKeys = false;
     public int index;
+    public SystemLanguage languageType;
     private Vector2 scrollView;
 
     public override void OnInspectorGUI()
@@ -28,6 +29,7 @@ public class LocalizeTextInspector : Editor
       index = m_Language.m_KeyValue;
       source = m_Language.m_Language;
 
+
       //set the text if we are not null
       if(string.IsNullOrEmpty(selectedKey) == true && source != null)
       {
@@ -40,7 +42,7 @@ public class LocalizeTextInspector : Editor
       source = (Language)EditorGUILayout.ObjectField(source, typeof(Language), false);
       GUILayout.EndHorizontal(); 
 
-      GUILayout.Space(10);
+      GUILayout.Space(5);
 
       m_Language.m_Language = (Language)source;
 
@@ -50,17 +52,26 @@ public class LocalizeTextInspector : Editor
         return;
       }
 
+      //tell what type of language this asset is set to
+      languageType = m_Language.m_Language.m_DefaultLanguage;
+      GUILayout.Label("Language Type: " + languageType.ToString());
+      GUILayout.Space(5);
+
+      //convert the list of keys to an array so we can display them in the EditorGUILayout.Popup
       string[] Keys = m_Language.m_Language.m_Keys.ToArray();
 
+      //check to see if we have any keys at all
       if(Keys.Length != 0)
       {
         GUILayout.BeginHorizontal();
         GUILayout.Label("Select a Key: ");
         //displays a popup of the string array of keys
         index = EditorGUILayout.Popup(index, Keys);
+
         m_Language.SetUIText();
         SetUITextDirty();
         m_Language.m_KeyValue = index;
+        
         GUILayout.EndHorizontal();
       }
       else
@@ -68,7 +79,7 @@ public class LocalizeTextInspector : Editor
         GUILayout.Label("No Keys in the Language Asset", EditorStyles.helpBox);
       }
 
-      GUILayout.Space(10);
+      GUILayout.Space(5);
 
       DetectUITextObject();
     }

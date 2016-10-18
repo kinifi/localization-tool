@@ -190,6 +190,7 @@ public class LanguageEditor : EditorWindow
 
 		GUILayout.FlexibleSpace();
 
+		//add a system language enum to allow language files to have a langauge for people to grab
 		m_currentEditedLanguage = (SystemLanguage) EditorGUILayout.EnumPopup("Language Type: ", m_currentEditedLanguage, EditorStyles.toolbarPopup, GUILayout.Width(280));
 		mLevel.m_DefaultLanguage = m_currentEditedLanguage;
 
