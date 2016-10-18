@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+#if UnityEditor
+using UnityEditor;
+#endif
 
 
 public class LocalizeText : MonoBehaviour {
@@ -10,7 +13,7 @@ public class LocalizeText : MonoBehaviour {
 
 	public string m_LanguageKey = "";
 	public int m_KeyValue;
-
+	public Text UIText;
 	public Text m_Display;
 
 	// Use this for initialization
@@ -27,13 +30,23 @@ public class LocalizeText : MonoBehaviour {
 		}
 
 		//set the text with the given values we have
-		SetText();
+		SetUIText();
 
 	}
 
-	private void SetText()
+	public void SetUIText()
 	{
-		
+		UIText = GetComponent<Text>();
+		if(UIText != null)
+		{
+			UIText.text = GetTranslation();
+		}
+
+	}
+
+	public string GetTranslation()
+	{
+		return m_Language.m_Translations[m_KeyValue];
 	}
 
 	public string GetKey()

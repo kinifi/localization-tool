@@ -13,8 +13,6 @@ public class LanguageEditor : EditorWindow
 	private bool mIsInitalized = false;
 	private string m_NotificationText = "Select A Language Asset";
 
-  	private SystemLanguage newSystemLanguage = SystemLanguage.English;
-
   	private Vector2 scrollPos;
 
 	//temp values used when creating a new key
@@ -170,7 +168,6 @@ public class LanguageEditor : EditorWindow
 			//save the asset
 			AssetDatabase.SaveAssets();
 
-			// Debug.Log("Translated Text: " + mNewValue);
 		}
 		GUILayout.EndHorizontal();
 
@@ -192,6 +189,9 @@ public class LanguageEditor : EditorWindow
 		NewKeyCreation();
 
 		GUILayout.FlexibleSpace();
+
+		m_currentEditedLanguage = (SystemLanguage) EditorGUILayout.EnumPopup("Language Type: ", m_currentEditedLanguage, EditorStyles.toolbarPopup, GUILayout.Width(280));
+		mLevel.m_DefaultLanguage = m_currentEditedLanguage;
 
 		GUILayout.EndHorizontal();
 	}
