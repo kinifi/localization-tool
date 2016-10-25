@@ -12,6 +12,6 @@ This is a string table to store localized text for your games into a Language As
 
 1.0v Features 
 
-2.0v Features
+2.0v Features:  System.Globalization CultureInfo
 
 3.0v Features
