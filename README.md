@@ -19,8 +19,17 @@ This is a string table to store localized text for your games into a Language As
   - GetKey(String Translation) returns string with given translation
 
 ## Localization Editor Window
+- Displays Key-Value pairs from a single language file
+- Language file must be selected or notification " Select Language File" is displayed in the Editor Window
+- Shortcut %L to open up the Editor Window
 
-## Localization Manager
+## Localization Manager Component
+- Holds an array of Language Files to access with the API's from the language files
+- API
+  - GetTranslation(String Key) returns the string Translation
+  - GetLanguageType() returns the SystemLanguage enum for this Language file
+  - GetKey(String Translation) returns string with given translation
+  - GetLanguageCount() returns int of number of languages on the manager.
 
 
 ### 1.0v Features 
