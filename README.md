@@ -28,8 +28,8 @@ This is a string table to store localized text for your games into a Language As
 - A Localize Text Component that stores multiple language files. Works similar to the Animation component and its animation array.
 - Editor Window with Localization Editor
 
-2.0v Features:
+### 2.0v Features:
 - Unity uses SystemLanguage Enum. This is not culture specific. There is no way to know the difference between Swiss German and Germany German. Moving Unity to System.Globalization CultureInfo would be the best way. This is already avaliable in C#. 
 
-3.0v Features
+### 3.0v Features
 - UI Localize Text Component that works with Unity's UI system. 
