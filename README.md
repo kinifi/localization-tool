@@ -26,6 +26,7 @@ This is a string table to store localized text for your games into a Language As
 ## Localization Manager Component
 - Holds an array of Language Files to access with the API's from the language files
 - API
+  - [BOOL]Auto Update Language - searches through the array of Language Files and sees if GetLanguage() matches any of the LanguageTypes of the Language files.
   - GetTranslation(String Key) returns the string Translation
   - GetLanguageType() returns the SystemLanguage enum for this Language file
   - GetKey(String Translation) returns string with given translation
@@ -42,3 +43,4 @@ This is a string table to store localized text for your games into a Language As
 
 ### 3.0v Features
 - UI Localize Text Component that works with Unity's UI system. 
+- UI Localize Textures, Materials, Sprites, UIImages and more. 
