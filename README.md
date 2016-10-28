@@ -3,6 +3,8 @@ A Language Localization Tool For Unity3D
 
 This is a string table to store localized text for your games into a Language Asset File. 
 
+[![Localization Icon](http://i.imgur.com/CxUqIt3.png)]
+
 ## Native Language - Player Settings
 - Each game selects a native language in the player settings
 - API
