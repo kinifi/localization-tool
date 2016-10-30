@@ -31,7 +31,7 @@ public class LanguageInspector : Editor
 
       GUILayout.BeginHorizontal(EditorStyles.helpBox);
       GUILayout.Label(languageTitle);
-      GUILayout.Label(m_Language.m_DefaultLanguage.ToString());
+      GUILayout.Label(m_Language.GetDefaultLanguage());
       GUILayout.EndHorizontal();
 
       GUILayout.Space(GUISpacing);
@@ -63,11 +63,11 @@ public class LanguageInspector : Editor
 
         GUILayout.BeginVertical(EditorStyles.helpBox);
 
-        if(m_Language.m_Translations.Count != 0)
+        if(m_Language.GetTranslationCount() != 0)
         {
-          for (int i = 1; i <= m_Language.m_Translations.Count; i++)
+          for (int i = 1; i <= m_Language.GetTranslationCount(); i++)
           {
-            GUILayout.Label(i + periodSpacing + m_Language.m_Translations[i-1]);
+            GUILayout.Label(i + periodSpacing + m_Language.GetTranslation(i-1));
           }
         }
         else
@@ -88,11 +88,11 @@ public class LanguageInspector : Editor
 
         GUILayout.BeginVertical(EditorStyles.helpBox);
         
-        if(m_Language.m_Keys.Count != 0)
+        if(m_Language.GetKeyCount() != 0)
         {
-          for (int i = 1; i <= m_Language.m_Keys.Count; i++)
+          for (int i = 1; i <= m_Language.GetKeyCount(); i++)
           {
-            GUILayout.Label(i + periodSpacing + m_Language.m_Keys[i-1]);
+            GUILayout.Label(i + periodSpacing + m_Language.GetKey(i-1));
           }
         }
         else

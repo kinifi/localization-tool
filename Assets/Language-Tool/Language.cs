@@ -23,9 +23,24 @@ public class Language : ScriptableObject
 		return m_Comments.Count;
 	}
 
+	public string GetKey(int index)
+	{
+		return m_Keys[index];
+	}
+
 	public int GetKeyCount()
 	{
 		return m_Keys.Count;
+	}
+
+	public string GetDefaultLanguage()
+	{
+		return m_DefaultLanguage;
+	}
+
+	public void SetDefaultLanguage(string value)
+	{
+		m_DefaultLanguage = value;
 	}
 
 	public void RemoveTranslation(int index)
