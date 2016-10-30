@@ -5,6 +5,12 @@ This is a string table to store localized text for your games into a Language As
 
 ![Localization Icon](http://i.imgur.com/CxUqIt3.png)
 
+## How To Get Started
+- (optional) Fork this repository into your own BitBucket account
+- Clone this repository onto a location on your computer.
+- Open the project in Unity.
+- Import the folder into your Unity Project
+
 ## Native Language - Player Settings
 - Each game selects a native language in the player settings
 - API
@@ -34,6 +40,18 @@ This is a string table to store localized text for your games into a Language As
   - GetKey(String Translation) returns string with given translation
   - GetLanguageCount() returns int of number of languages on the manager.
 
+### Contributing
+
+If you want to contribute back, please keep it under the unmodified MIT license so it can be integrated in future versions and shared under the same license.
+
+We will look at everyones contributions and on the last business day of the month they will be merged into Master. 
+
+
+### License 
+
+The Localization system is released under an MIT/X11 license; see the LICENSE file.
+This means that you pretty much can customize and embed it in any software under any license without any other constraints than preserving the copyright and license information while adding your own copyright and license information.
+You can keep the source to yourself or share your customized version under the same MIT license or a compatible license.
 
 ### 1.0v Features 
 - Single Language files with Key->Value pairs. 
