@@ -7,7 +7,7 @@ using UnityEditor;
 #endif
 
 
-public class LocalizeText : MonoBehaviour {
+public class LocalizeUIText : MonoBehaviour {
 
 	public Language m_Language;
 	public SystemLanguage m_LanguageType;

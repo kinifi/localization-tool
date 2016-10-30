@@ -3,24 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
+using System.Globalization;
 
-[CustomEditor(typeof(LocalizeText))]
+[CustomEditor(typeof(LocalizeUIText))]
 [CanEditMultipleObjects]
 public class LocalizeTextInspector : Editor
 {
 
-    private LocalizeText m_Language;
+    private LocalizeUIText m_Language;
     public Language source;
     public string selectedKey;
     public bool showKeys = false;
     public int index;
-    public SystemLanguage languageType;
+    public string languageType;
     private Vector2 scrollView;
 
     public override void OnInspectorGUI()
     {
 
-      m_Language = (LocalizeText)target;
+      m_Language = (LocalizeUIText)target;
 
       GUILayout.Space(2);
 
@@ -54,7 +55,7 @@ public class LocalizeTextInspector : Editor
 
       //tell what type of language this asset is set to
       languageType = m_Language.m_Language.m_DefaultLanguage;
-      GUILayout.Label("Language Type: " + languageType.ToString());
+      GUILayout.Label("Language Type: " + languageType);
       GUILayout.Space(2);
 
       //convert the list of keys to an array so we can display them in the EditorGUILayout.Popup

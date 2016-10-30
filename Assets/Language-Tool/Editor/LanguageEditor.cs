@@ -5,6 +5,7 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Assertions;
+using System.Globalization;
 
 public class LanguageEditor : EditorWindow
 {
@@ -22,6 +23,8 @@ public class LanguageEditor : EditorWindow
     //currently editing key and value
     private int m_editingKey, m_editingValue;
     private SystemLanguage m_currentEditedLanguage;
+	private CultureInfo[] m_CultureType;
+	private int index;
 
     private bool m_isEditing = false;
 
@@ -190,32 +193,58 @@ public class LanguageEditor : EditorWindow
 
 		GUILayout.FlexibleSpace();
 
-		//add a system language enum to allow language files to have a langauge for people to grab
-		m_currentEditedLanguage = (SystemLanguage) EditorGUILayout.EnumPopup("Language Type: ", m_currentEditedLanguage, EditorStyles.toolbarPopup, GUILayout.Width(280));
-		mLevel.m_DefaultLanguage = m_currentEditedLanguage;
+		CultureSelection();
+
 
 		GUILayout.EndHorizontal();
 	}
 
+	private void CultureSelection()
+	{
+
+		// //add a system language enum to allow language files to have a langauge for people to grab
+		m_CultureType = CultureInfo.GetCultures(CultureTypes.AllCultures);
+		List<string> cultures = new List<string>();
+		foreach (CultureInfo ci in CultureInfo.GetCultures(CultureTypes.AllCultures))
+		{
+			cultures.Add(ci.EnglishName);
+		}
+		
+		//display the enum popup
+		GUILayout.BeginHorizontal();
+		GUILayout.Label("Language: ");
+		index = EditorGUILayout.Popup(index, cultures.ToArray(), EditorStyles.toolbarPopup);
+		GUILayout.EndHorizontal();
+		//assign the language to the language file
+		mLevel.m_DefaultLanguage =  cultures[index];
+	}
+
+	private void AddNewKey()
+	{
+		//hide the translation editor
+		m_isEditing = false;
+
+		//save the new key here
+
+		//save the key to mLevel.m_Keys
+		mLevel.m_Keys.Add(mNewKey);
+
+		//add a blank key. This will be edited by the user later
+		mLevel.m_Translations.Add("");
+
+		//clear the new key
+		mNewKey = "";
+	}
+
 	private void NewKeyCreation()
 	{
-		mNewKey = EditorGUILayout.TextField("Create A New Key: ", mNewKey, EditorStyles.toolbarTextField, GUILayout.Width(400));
+		
+		mNewKey = EditorGUILayout.TextField("Create A New Key: ", mNewKey, EditorStyles.toolbarTextField, GUILayout.Width(300));
 
+		//add key with language
 		if(GUILayout.Button("+", EditorStyles.toolbarButton, GUILayout.Width(30)))
 		{
-			//hide the translation editor
-			m_isEditing = false;
-
-			//save the new key here
-
-			//save the key to mLevel.m_Keys
-			mLevel.m_Keys.Add(mNewKey);
-
-			//add a blank key. This will be edited by the user later
-			mLevel.m_Translations.Add("");
-
-			//clear the new key
-			mNewKey = "";
+			AddNewKey();
 		}
 
 	}

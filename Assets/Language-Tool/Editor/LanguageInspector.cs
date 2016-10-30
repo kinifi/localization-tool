@@ -18,9 +18,9 @@ public class LanguageInspector : Editor
       //grab the file
       m_Language = (Language)target;
 
-      GUILayout.Label("Localization File", EditorStyles.helpBox);
+      GUILayout.Label("Language: " + m_Language.m_DefaultLanguage);
 
-      GUILayout.Space(10);
+      GUILayout.Space(5);
 
       //display the keys
       m_ShowKeys = EditorGUILayout.Foldout(m_ShowKeys, "Keys");
