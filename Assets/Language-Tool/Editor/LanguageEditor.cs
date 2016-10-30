@@ -1,11 +1,11 @@
-using UnityEngine;
-using UnityEditor;
 using System;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.Assertions;
 using System.Globalization;
+using UnityEngine;
+using UnityEditor;
+using UnityEngine.Assertions;
 
 public class LanguageEditor : EditorWindow
 {
