@@ -21,12 +21,40 @@ public class LOCManager
 {
 
 	//Class Level Members Start
-	public SystemLanguage currentLanguage;
+	public Language currentLanguage;
+    public Keys currentKeys;
+    private List<Language> m_Languages = new List<Language>();
 
-	//Class Level Members End
+    //Class Level Members End
 
 
-	//Method Start
+    //Method Start
+
+    public void ClearOtherLangauges()
+    {
+        m_Languages.Clear();
+    }
+
+    public void AddOtherLanguage(Language NewLanguage)
+    {
+        m_Languages.Add(NewLanguage);
+    }
+
+    /// <summary>
+    /// Saves the other languages to be used. Clears Existing Languages that are stored
+    /// </summary>
+    /// <param name="Languages"></param>
+    public void SetOtherLanguages(List<Language> Languages)
+    {
+        ClearOtherLangauges();
+        m_Languages = Languages;
+    }
+
+    public void ChangeSceneObjects()
+    {
+        LocalizeUIText[] LocalizeTextFiles = GameObject.FindObjectsOfType<LocalizeUIText>();
+
+    }
 
 	/// <summary>
 	/// load all of the data on setup
@@ -34,15 +62,29 @@ public class LOCManager
 	/// </summary>
 	public void Setup()
 	{	
-		//get the current language
-		currentLanguage = Application.systemLanguage;
+
 	}
+
+    public void ClearKeys()
+    {
+        currentKeys = null;
+    }
+
+    public void SetKeys(Keys keyfile)
+    {
+        currentKeys = keyfile;
+    }
+
+    public Keys GetKeys()
+    {
+        return currentKeys;
+    }
 
 	/// <summary>
 	/// Sets the current language. Default is system language
 	/// </summary>
 	/// <param name="language">Language.</param>
-	public void SetLanguage(SystemLanguage language)
+	public void SetLanguage(Language language)
 	{
 		//set the current language
 		currentLanguage = language;
@@ -52,7 +94,7 @@ public class LOCManager
 	/// Gets the current set language
 	/// </summary>
 	/// <returns>The language.</returns>
-	public SystemLanguage GetLanguage()
+	public Language GetLanguage()
 	{
 		return currentLanguage;
 	}

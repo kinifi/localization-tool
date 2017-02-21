@@ -23,26 +23,6 @@ public class LanguageInspector : Editor
       GUILayout.Space(5);
 
       //display the keys
-      m_ShowKeys = EditorGUILayout.Foldout(m_ShowKeys, "Keys");
-      if(m_ShowKeys)
-      {
-        if(m_Language.m_Keys.Count != 0)
-        {
-          for (int i = 1; i <= m_Language.m_Keys.Count; i++)
-          {
-            GUILayout.Label(i + ". " + m_Language.m_Keys[i-1], EditorStyles.helpBox);
-          }
-        }
-        else
-        {
-          GUILayout.Label("No Keys", EditorStyles.helpBox);
-        }
-
-      }
-
-      GUILayout.Space(5);
-
-      //display the keys
       m_ShowTranslations = EditorGUILayout.Foldout(m_ShowTranslations, "Translations");
       if(m_ShowTranslations)
       {

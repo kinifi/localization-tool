@@ -11,6 +11,7 @@ public class LocalizeTextInspector : Editor
 {
 
     private LocalizeUIText m_Language;
+    public Keys m_Keys;
     public Language source;
     public string selectedKey;
     public bool showKeys = false;
@@ -26,8 +27,8 @@ public class LocalizeTextInspector : Editor
       GUILayout.Space(2);
 
       //load values 
-      selectedKey = m_Language.m_LanguageKey;
-      index = m_Language.m_KeyValue;
+      //selectedKey = m_Language.m_LanguageKey;
+      //index = m_Language.m_KeyValue;
       source = m_Language.m_Language;
 
 
@@ -39,7 +40,7 @@ public class LocalizeTextInspector : Editor
 
       //give a dialog for our users to select a language file
       GUILayout.BeginHorizontal();
-      GUILayout.Label("Select the Language File: ");
+      GUILayout.Label("Set the Language File: ");
       source = (Language)EditorGUILayout.ObjectField(source, typeof(Language), false);
       GUILayout.EndHorizontal(); 
 

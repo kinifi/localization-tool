@@ -23,8 +23,6 @@ public class LanguageEditor : EditorWindow
     //currently editing key and value
     private int m_editingKey, m_editingValue;
     private SystemLanguage m_currentEditedLanguage;
-	private CultureInfo[] m_CultureType;
-	private int index;
 
     private bool m_isEditing = false;
 
@@ -86,11 +84,13 @@ public class LanguageEditor : EditorWindow
 			return;
 
 		//check if we have any keys to display
+        /*
 		if(mLevel.m_Keys.Count == 0)
 		{
 			GUILayout.Label("No Keys or Values to Display", EditorStyles.miniBoldLabel);
 			return;
 		}
+        */
 
 		//make a container of these blocks of data
 		GUILayout.BeginVertical();
@@ -101,20 +101,20 @@ public class LanguageEditor : EditorWindow
 		scrollPos = EditorGUILayout.BeginScrollView(scrollPos);
 
 		//loop through the keys and add rows for them
-		for (int i = 1; i <= mLevel.m_Keys.Count; i++)
+		for (int i = 1; i <= mLevel.m_Translations.Count; i++)
         {
             GUILayout.BeginHorizontal(EditorStyles.helpBox);
 
             //get the translation values and add buttons for them
             newLanguageValue = mLevel.m_Translations[i-1];
 
-            //create a label for the key and values
-		    GUILayout.Label("Key: " + mLevel.m_Keys[i-1] + " | Value: " + newLanguageValue);
+            //create a label for the key and values "Key: " + mLevel.m_Keys[i-1] + 
+            GUILayout.Label(newLanguageValue);
 
 		    //Add a way to edit these
             if(GUILayout.Button("Edit", GUILayout.Width(50)))
             {
-            	mNewKey = mLevel.m_Keys[i-1];
+            	//mNewKey = mLevel.m_Keys[i-1];
             	m_editingKey = i-1;
             	mNewValue = newLanguageValue;
             	m_isEditing = true;
@@ -122,7 +122,7 @@ public class LanguageEditor : EditorWindow
 
 			if(GUILayout.Button("Delete", GUILayout.Width(50)))
             {
-            	mLevel.m_Keys.RemoveAt(i-1);
+            	//mLevel.m_Keys.RemoveAt(i-1);
             	mLevel.m_Translations.RemoveAt(i-1);
             }            
 
@@ -161,7 +161,7 @@ public class LanguageEditor : EditorWindow
 			m_isEditing = false;
 			
 			//set the key to the correct language you are editing
-			mLevel.m_Keys[m_editingKey] = mNewKey;
+			//mLevel.m_Keys[m_editingKey] = mNewKey;
 
 			mLevel.m_Translations[m_editingKey] = mNewValue;
 
@@ -172,6 +172,12 @@ public class LanguageEditor : EditorWindow
 			AssetDatabase.SaveAssets();
 
 		}
+
+        if(GUILayout.Button("Close"))
+        {
+            m_isEditing = false;
+        }
+
 		GUILayout.EndHorizontal();
 
 		GUILayout.Space(20);
@@ -189,36 +195,22 @@ public class LanguageEditor : EditorWindow
 	{
 		GUILayout.BeginHorizontal(EditorStyles.toolbar);
 
-		NewKeyCreation();
+        //NewKeyCreation();
+        AddNewTranslation();
 
-		GUILayout.FlexibleSpace();
+        LanguageNameInput();
 
-		CultureSelection();
+        GUILayout.FlexibleSpace();
 
-
-		GUILayout.EndHorizontal();
+        GUILayout.EndHorizontal();
 	}
 
-	private void CultureSelection()
-	{
-
-		// //add a system language enum to allow language files to have a langauge for people to grab
-		m_CultureType = CultureInfo.GetCultures(CultureTypes.AllCultures);
-		List<string> cultures = new List<string>();
-		foreach (CultureInfo ci in CultureInfo.GetCultures(CultureTypes.AllCultures))
-		{
-			cultures.Add(ci.EnglishName);
-		}
-		
-		//display the enum popup
-		GUILayout.BeginHorizontal();
-		GUILayout.Label("Language: ");
-		index = EditorGUILayout.Popup(index, cultures.ToArray(), EditorStyles.toolbarPopup);
-		GUILayout.EndHorizontal();
-		//assign the language to the language file
-		mLevel.m_DefaultLanguage =  cultures[index];
+	private void LanguageNameInput()
+	{        
+        mLevel.m_DefaultLanguage = EditorGUILayout.TextField("Language Name: ", mLevel.m_DefaultLanguage, EditorStyles.toolbarTextField);
 	}
 
+    
 	private void AddNewKey()
 	{
 		//hide the translation editor
@@ -248,6 +240,20 @@ public class LanguageEditor : EditorWindow
 		}
 
 	}
+
+    private void AddNewTranslation()
+    {
+        //add key with language
+        if (GUILayout.Button("Add New Translation +", EditorStyles.toolbarButton))
+        {
+            //open the translation editing box
+            m_isEditing = true;
+            //set the editing box to be the new translation added
+            m_editingKey = mLevel.m_Translations.Count;
+            ClearCreationFields();
+            mLevel.m_Translations.Add("");
+        }
+    }
 
 
 	//helper methods
