@@ -23,6 +23,7 @@ public class LanguageEditor : EditorWindow
     //currently editing key and value
     private int m_editingKey, m_editingValue;
     private SystemLanguage m_currentEditedLanguage;
+    private string NewLanguageName;
 
     private bool m_isEditing = false;
 
@@ -122,8 +123,9 @@ public class LanguageEditor : EditorWindow
 
 			if(GUILayout.Button("Delete", GUILayout.Width(50)))
             {
-            	//mLevel.m_Keys.RemoveAt(i-1);
+                EditorUtility.SetDirty(mLevel);
             	mLevel.m_Translations.RemoveAt(i-1);
+                AssetDatabase.SaveAssets();
             }            
 
             GUILayout.EndHorizontal();
@@ -168,6 +170,8 @@ public class LanguageEditor : EditorWindow
 		    //clear the text box
 		    mNewValue = "";
 
+            EditorUtility.SetDirty(mLevel);
+
 			//save the asset
 			AssetDatabase.SaveAssets();
 
@@ -206,8 +210,13 @@ public class LanguageEditor : EditorWindow
 	}
 
 	private void LanguageNameInput()
-	{        
-        mLevel.m_DefaultLanguage = EditorGUILayout.TextField("Language Name: ", mLevel.m_DefaultLanguage, EditorStyles.toolbarTextField);
+	{
+        NewLanguageName = EditorGUILayout.TextField("Language Name: ", NewLanguageName, EditorStyles.toolbarTextField);
+        if(mLevel.m_DefaultLanguage != NewLanguageName)
+        {
+            mLevel.m_DefaultLanguage = NewLanguageName;
+            EditorUtility.SetDirty(mLevel);
+        }
 	}
 
     
@@ -324,7 +333,9 @@ public class LanguageEditor : EditorWindow
 			selectedAsset = Selection.activeObject as Language;
 			mLevel = selectedAsset;
 			mIsInitalized = true;
-	        this.RemoveNotification();
+            NewLanguageName = mLevel.m_DefaultLanguage;
+
+            this.RemoveNotification();
 	        
 		}
 		else

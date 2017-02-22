@@ -51,7 +51,7 @@ public class LocalizationManager : MonoBehaviour {
 
     private void SetDefaultLanguage()
     {
-        LOCManager.Instance.SetLanguage(m_DefaultLanguage);
+        LOCManager.Instance.SetDefaultLanguage(m_DefaultLanguage);
     }
 
 

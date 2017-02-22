@@ -11,10 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ddac771003fd4ad19cdc58c1d760240, type: 3}
   m_Name: Japanese
   m_EditorClassIdentifier: 
-  m_DefaultLanguage: 10
+  m_DefaultLanguage: Japanese
   m_Keys:
   - hi
   - how are you
   m_Translations:
   - "\u3053\u3093\u306B\u3061\u306F"
-  - 

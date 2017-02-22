@@ -11,10 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ddac771003fd4ad19cdc58c1d760240, type: 3}
   m_Name: Spanish
   m_EditorClassIdentifier: 
-  m_DefaultLanguage: 22
+  m_DefaultLanguage: Spanish
   m_Keys:
   - hi
   - how are you
   m_Translations:
   - hola
-  - 

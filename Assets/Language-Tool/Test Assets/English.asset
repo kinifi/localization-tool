@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ddac771003fd4ad19cdc58c1d760240, type: 3}
   m_Name: English
   m_EditorClassIdentifier: 
-  m_DefaultLanguage: 0
+  m_DefaultLanguage: English
   m_Keys: []
-  m_Translations: []
+  m_Translations:
+  - hello in english!

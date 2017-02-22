@@ -20,15 +20,19 @@ using System.Collections.Generic;
 public class LOCManager
 {
 
-	//Class Level Members Start
+    //Class Level Members Start
+    public Language defaultLanguage;
 	public Language currentLanguage;
     public Keys currentKeys;
     private List<Language> m_Languages = new List<Language>();
+
 
     //Class Level Members End
 
 
     //Method Start
+
+    #region Languages
 
     public void ClearOtherLangauges()
     {
@@ -50,9 +54,16 @@ public class LOCManager
         m_Languages = Languages;
     }
 
+    #endregion
+
+    public string GetTranslation(int index)
+    {
+        return currentLanguage.m_Translations[index];
+    }
+
     public void ChangeSceneObjects()
     {
-        LocalizeUIText[] LocalizeTextFiles = GameObject.FindObjectsOfType<LocalizeUIText>();
+        Localize[] LocalizeTextFiles = GameObject.FindObjectsOfType<Localize>();
 
     }
 
@@ -64,6 +75,8 @@ public class LOCManager
 	{	
 
 	}
+
+    #region Keys
 
     public void ClearKeys()
     {
@@ -80,15 +93,23 @@ public class LOCManager
         return currentKeys;
     }
 
-	/// <summary>
-	/// Sets the current language. Default is system language
-	/// </summary>
-	/// <param name="language">Language.</param>
-	public void SetLanguage(Language language)
+    #endregion
+
+    /// <summary>
+    /// Sets the current language. Default is system language
+    /// </summary>
+    /// <param name="language">Language.</param>
+    public void SetLanguage(Language language)
 	{
 		//set the current language
 		currentLanguage = language;
 	}
+
+    public void SetDefaultLanguage(Language language)
+    {
+        defaultLanguage = language;
+        currentLanguage = language;
+    }
 
 	/// <summary>
 	/// Gets the current set language
